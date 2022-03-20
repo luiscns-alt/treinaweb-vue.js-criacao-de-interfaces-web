@@ -6,7 +6,8 @@
 </head>
 <body>
 <div id="app">
-    <div v-html="myHTML"></div>
+    <button @click="upCounter">Click Me</button>
+    {{ counter }}
 </div>
 
 
@@ -15,13 +16,17 @@
     Vue.createApp({
         data() {
             return {
-                myHTML: '<input type="text" />'
+                counter: 0
             }
         },
-        created() {
-            console.log('Starting Vue')
-        }
+        methods: {
+            upCounter: function () {
+                this.counter++;
+            }
+        },
+        // app.$on('abc', app.upCounter)
     }).mount('#app')
+
 </script>
 </body>
 </html>
