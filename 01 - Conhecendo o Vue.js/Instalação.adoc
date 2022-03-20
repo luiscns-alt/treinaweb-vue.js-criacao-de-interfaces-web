@@ -1,0 +1,42 @@
+=== CDN
+
+Importando através do scrip:
+
+[source,html]
+----
+
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+
+----
+
+=== NPM
+
+Instalando com o seguinte comando:
+
+[source,shell]
+----
+npm install vue
+
+----
+
+ou
+
+[source,shell]
+----
+npm init vue@latest
+npm install
+npm run dev
+npm run build
+
+----
+
+=== Bower
+
+[source,shell]
+----
+bower install vue
+----
+
+=== Site
+
+https://vuejs.org/[VueJs]
