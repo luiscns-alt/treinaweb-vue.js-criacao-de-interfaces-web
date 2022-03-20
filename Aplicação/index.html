@@ -7,27 +7,20 @@
 <body>
 
 <div id="app">
-    {{title | upper | reverse | cut(2,4)}}
+    {{title | upper}}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <script>
+    Vue.filter('upper', function (text) {
+        return text.toUpperCase();
+    })
+
     var app = new Vue({
         el: '#app',
         data: {
-            title: 'Luis'
-        },
-        filters: {
-            upper: function (text) {
-                return text.toUpperCase();
-            },
-            reverse: function (text) {
-                return text.split('').reverse().join('');
-            },
-            cut: function (text, index1, index2){
-                return text.substring(index1, index2);
-            }
+            title: 'Luis Carlos'
         }
     })
 </script>
