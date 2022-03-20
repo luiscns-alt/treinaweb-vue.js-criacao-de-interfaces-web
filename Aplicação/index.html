@@ -6,10 +6,17 @@
 </head>
 <body>
 <div id="app">
-    <span v-if="1 > 3">A</span>
-    <span v-else-if="3 > 1">B</span>
-    <span v-else>C</span>
+    <ul>
+        <li v-for="(item, index) in list" :key="index">
+            {{index}} - {{ item.text }}
+        </li>
+    </ul>
 
+    <ul>
+        <li v-for="number in 5">
+            {{ number }}
+        </li>
+    </ul>
 </div>
 
 
@@ -18,7 +25,11 @@
     Vue.createApp({
         data() {
             return {
-                isVisible: false
+                list: [
+                    { text: 'item 1' },
+                    { text: 'item 2' },
+                    { text: 'item 3' }
+                ]
             }
         },
         created() {
