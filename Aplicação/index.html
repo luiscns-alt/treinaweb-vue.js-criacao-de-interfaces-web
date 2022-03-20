@@ -1,32 +1,28 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>VueJs</title>
+    <title>Vue.js</title>
 </head>
 <body>
+
 <div id="app">
-    <button @click="upCounter">Click Me</button>
-    {{ counter }}
+    {{title | upper}}
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
-<script src="https://unpkg.com/vue@3"></script>
 <script>
-    Vue.createApp({
-        data() {
-            return {
-                counter: 0
-            }
-        },
-        methods: {
-            upCounter: function () {
-                this.counter++;
-            }
-        },
-        // app.$on('abc', app.upCounter)
-    }).mount('#app')
+    Vue.filter('upper', function (text) {
+        return text.toUpperCase();
+    })
 
+    var app = new Vue({
+        el: '#app',
+        data: {
+            title: 'Luis Carlos'
+        }
+    })
 </script>
 </body>
 </html>

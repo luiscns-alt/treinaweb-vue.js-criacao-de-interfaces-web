@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+    <button @click="isFilterOn = !isFilterOn">Click me</button>
+    {{text | myFilter(isFilterOn)}}
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            text: 'Luis Carlos',
+            isFilterOn: true
+        },
+        filters: {
+            myFilter: function (text, isOn) {
+                return isOn ? text.replace(/[aeiou]/g, '') : text;
+            }
+        }
+    })
+</script>
+</body>
+</html>
