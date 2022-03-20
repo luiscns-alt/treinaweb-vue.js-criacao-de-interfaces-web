@@ -5,7 +5,14 @@
     <title>VueJs</title>
 </head>
 <body>
-<div id="app">{{ message }}</div>
+<div id="app">
+    <span v-bind:title="message">ABC</span>
+
+    {{ message.toUpperCase() }}<br>
+    {{ 5 + 3 }}<br>
+    {{ false ? '3' : '5' }}<br>
+</div>
+
 
 <script src="https://unpkg.com/vue@3"></script>
 <script>
