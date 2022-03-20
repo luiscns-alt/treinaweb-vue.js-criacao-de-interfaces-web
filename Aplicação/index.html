@@ -1,32 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <title>VueJs</title>
+    <title>Vue.js</title>
 </head>
 <body>
+
 <div id="app">
-    <button @click="upCounter">Click Me</button>
-    {{ counter }}
+    {{title | upper | reverse | cut(2,4)}}
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
-<script src="https://unpkg.com/vue@3"></script>
 <script>
-    Vue.createApp({
-        data() {
-            return {
-                counter: 0
-            }
+    var app = new Vue({
+        el: '#app',
+        data: {
+            title: 'Luis'
         },
-        methods: {
-            upCounter: function () {
-                this.counter++;
+        filters: {
+            upper: function (text) {
+                return text.toUpperCase();
+            },
+            reverse: function (text) {
+                return text.split('').reverse().join('');
+            },
+            cut: function (text, index1, index2){
+                return text.substring(index1, index2);
             }
-        },
-        // app.$on('abc', app.upCounter)
-    }).mount('#app')
-
+        }
+    })
 </script>
 </body>
 </html>
