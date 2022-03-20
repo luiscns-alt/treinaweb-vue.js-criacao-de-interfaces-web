@@ -40,3 +40,7 @@ bower install vue
 === Site
 
 https://vuejs.org/[VueJs]
+
+=== Ciclo de Vida
+
+beforeCreate -> created -> beforeMount -> mounted -> beforeUpdate -> updated -> beforeDestroy -> destroed
