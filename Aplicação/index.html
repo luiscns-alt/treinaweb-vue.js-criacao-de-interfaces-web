@@ -6,17 +6,7 @@
 </head>
 <body>
 <div id="app">
-    <ul>
-        <li v-for="(item, index) in list" :key="index">
-            {{index}} - {{ item.text }}
-        </li>
-    </ul>
-
-    <ul>
-        <li v-for="number in 5">
-            {{ number }}
-        </li>
-    </ul>
+    <div v-html="myHTML"></div>
 </div>
 
 
@@ -25,11 +15,7 @@
     Vue.createApp({
         data() {
             return {
-                list: [
-                    { text: 'item 1' },
-                    { text: 'item 2' },
-                    { text: 'item 3' }
-                ]
+                myHTML: '<input type="text" />'
             }
         },
         created() {
