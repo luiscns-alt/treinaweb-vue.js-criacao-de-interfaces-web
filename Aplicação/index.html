@@ -7,21 +7,21 @@
 <body>
 
 <div id="app">
-    <input v-color="color" type="text" />
+    <select v-model="selected" multiple >
+        <option :value="1">A</option>
+        <option :value="2">B</option>
+        <option :value="3">C</option>
+    </select>
+    {{selected}}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <script>
-    Vue.directive('color', function (el, binding) {
-                el.style.backgroundColor = binding.value
-            }
-    )
-
     var app = new Vue({
         el: '#app',
         data: {
-            color: 'red'
+            selected: ''
         }
     })
 </script>
