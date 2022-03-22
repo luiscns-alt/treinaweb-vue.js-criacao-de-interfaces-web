@@ -7,20 +7,22 @@
 <body>
 
 <div id="app">
-    <input v-hello type="text" />
+    <input v-color="color" type="text" />
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <script>
-    Vue.directive('hello', {
-        inserted: function (el) {
-            el.value = 'Hello World!'
-        }
-    })
+    Vue.directive('color', function (el, binding) {
+                el.style.backgroundColor = binding.value
+            }
+    )
 
     var app = new Vue({
-        el: '#app'
+        el: '#app',
+        data: {
+            color: 'red'
+        }
     })
 </script>
 </body>
