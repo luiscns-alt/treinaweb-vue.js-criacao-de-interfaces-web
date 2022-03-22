@@ -8,8 +8,9 @@
 
 <div id="app">
     <my-component>
-        <h1 slot="titulo2">Luis Carlos</h1>
-        <h2 slot="titulo1">Title 2</h2>
+        <template scope="props">
+            <h1>Titulo - {{props.compText}}</h1>
+        </template>
     </my-component>
 </div>
 
@@ -18,16 +19,23 @@
 <script>
     Vue.component('my-component', {
         template: `
-			<div>
-				<slot name="titulo1" ></slot>
-				<div>Hello</div>
-				<slot name="titulo2" ></slot>
-			</div>
-		`
+          <div>
+          <slot :compText="myText"></slot>
+          <div>Hello</div>
+          </div>
+        `,
+        data: function () {
+            return {
+                myText: 'def'
+            }
+        }
     })
 
     var app = new Vue({
-        el: '#app'
+        el: '#app',
+        data: {
+            myText: 'abc'
+        }
     })
 </script>
 </body>
