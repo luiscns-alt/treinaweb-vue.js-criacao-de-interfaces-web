@@ -7,7 +7,10 @@
 <body>
 
 <div id="app">
-    <my-component ref="mc" @change="change"></my-component>
+    <my-component>
+        <h1 slot="titulo2">Luis Carlos</h1>
+        <h2 slot="titulo1">Title 2</h2>
+    </my-component>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -15,29 +18,16 @@
 <script>
     Vue.component('my-component', {
         template: `
-          <div>
-          <button @click="upCounter">Click Me</button>
-          - {{ counter }}
-          </div>
-        `,
-        data: function () {
-            return { counter: 0 }
-        },
-        methods: {
-            upCounter: function () {
-                this.counter++;
-                this.$emit('change')
-            }
-        }
+			<div>
+				<slot name="titulo1" ></slot>
+				<div>Hello</div>
+				<slot name="titulo2" ></slot>
+			</div>
+		`
     })
 
     var app = new Vue({
-        el: '#app',
-        methods: {
-            change: function () {
-                console.log('new value');
-            }
-        }
+        el: '#app'
     })
 </script>
 </body>
