@@ -7,9 +7,9 @@
 <body>
 
 <div id="app">
-    <button @click="show = !show">Click Me</button>
-    <transition name="myAnimation">
-        <p v-if="show">Hello</p>
+    <button @click="show = !show" >Click Me</button>
+    <transition name="myAnimation" @enter="onEnter" >
+        <p v-if="show" >Hello</p>
     </transition>
 </div>
 
@@ -20,6 +20,11 @@
         el: '#app',
         data: {
             show: true
+        },
+        methods: {
+            onEnter: function(el, done){
+                console.log('Hiiii!')
+            }
         }
     })
 </script>
