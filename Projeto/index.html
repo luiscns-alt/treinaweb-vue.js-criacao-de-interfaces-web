@@ -7,18 +7,21 @@
 </head>
 <body>
 <div id="app">
-    <img v-rotate-on-scroll src="//hanashiro.github.io/pokedex/images/pokeball.svg" class="pokeball-back">
-    <input v-model="nameFilter" type="text" id="pokeFilter" placeholder="Search" maxlength="20" />
-    <ul class="poke-list">
-        <my-list v-for="item in pokeList" :pokemon="item" :key="item.number"></my-list>
-    </ul>
+    <img v-rotate-on-scroll src="//hanashiro.github.io/pokedex/images/pokeball.svg" class="pokeball-back" >
+    <router-view></router-view>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<!--<script src="https://unpkg.com/vue-router" ></script>-->
+<script src="https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js"></script>
+<!--<script src="https://cdnjs.cloudflare.com/ajax/libs/vue-router/4.0.14/vue-router.cjs.js" integrity="sha512-uK3weFJ9/oSXW8qFGI6r8AGZ20q/ABIcabpGnezSJ3Ty2aEcF5ygABIW6Od1r4AWky+m86XZqFFK9QsP1iHTaA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
 <script src="./js/services.js"></script>
 <script src="./js/filters.js"></script>
 <script src="./js/directives.js"></script>
+<script src="./js/home-page-component.js"></script>
+<script src="./js/about-page-component.js"></script>
 <script src="./js/list-component.js"></script>
+<script src="./js/routes.js"></script>
 <script src="./js/app.js"></script>
 
 </body>
