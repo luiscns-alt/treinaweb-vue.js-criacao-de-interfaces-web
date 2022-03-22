@@ -7,7 +7,17 @@
 <body>
 
 <div id="app">
-    <input type="text" v-model.lazy="name" /> {{ name }}
+    <input type="checkbox" value="A" v-model="myList" />
+    <input type="checkbox" value="B" v-model="myList" />
+    <input type="checkbox" value="C" v-model="myList" />
+
+    {{ myList }}
+
+    <hr>
+
+    <input type="checkbox" :true-value="5" :false-value="18" v-model="myCheck" />
+
+    {{ myCheck }}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -16,7 +26,8 @@
     var app = new Vue({
         el: '#app',
         data: {
-            name: ''
+            myList: [],
+            myCheck: ''
         }
     })
 </script>
