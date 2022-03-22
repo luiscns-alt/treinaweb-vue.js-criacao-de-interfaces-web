@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Vue.js</title>
+</head>
+<body>
+
+<div id="app">
+    <input v-my-directive type="text" />
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+
+<script>
+    Vue.directive('my-directive', function (el) {
+        var angle = 0;
+        el.addEventListener('click', function () {
+            angle += 90;
+            el.style.transform = `rotateZ(${angle}deg)`;
+        })
+    })
+
+    var app = new Vue({
+        el: '#app'
+    })
+</script>
+</body>
+</html>
