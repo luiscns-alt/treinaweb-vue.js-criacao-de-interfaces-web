@@ -8,7 +8,8 @@ const app = new Vue({
             { name: 'celebi', number: 251 },
             { name: 'lucario', number: 448 },
             { name: 'delphox', number: 655 },
-        ]
+        ],
+        nameFilter: ''
     },
     computed: {
         pokeList: function () {
