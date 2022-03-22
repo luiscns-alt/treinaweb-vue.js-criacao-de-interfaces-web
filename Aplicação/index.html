@@ -7,35 +7,27 @@
 <body>
 
 <div id="app">
-    <my-component>
-        <template scope="props">
-            <h1>Titulo - {{props.compText}}</h1>
-        </template>
-    </my-component>
+    {{ fullName }}
+    {{ reverse }}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <script>
-    Vue.component('my-component', {
-        template: `
-          <div>
-          <slot :compText="myText"></slot>
-          <div>Hello</div>
-          </div>
-        `,
-        data: function () {
-            return {
-                myText: 'def'
-            }
-        }
-    })
-
     var app = new Vue({
         el: '#app',
         data: {
-            myText: 'abc'
-        }
+            firstName: 'Seu',
+            lastName: 'Nome'
+        },
+        computed: {
+            fullName: function () {
+                return this.firstName + ' ' + this.lastName
+            },
+            reverse: function () {
+                return this.firstName.split('').reverse().join('');
+            }
+        },
     })
 </script>
 </body>
