@@ -8,7 +8,6 @@
 
 <div id="app">
     {{ fullName }}
-    {{ reverse }}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -17,17 +16,21 @@
     var app = new Vue({
         el: '#app',
         data: {
-            firstName: 'Seu',
-            lastName: 'Nome'
+            firstName: 'Hello',
+            lastName: 'World'
         },
         computed: {
-            fullName: function () {
-                return this.firstName + ' ' + this.lastName
-            },
-            reverse: function () {
-                return this.firstName.split('').reverse().join('');
+            fullName: {
+                get: function () {
+                    return this.firstName + ' ' + this.lastName
+                },
+                set: function (newValue) {
+                    var names = newValue.split(' ');
+                    this.firstName = names[0];
+                    this.lastName = names[1];
+                }
             }
-        },
+        }
     })
 </script>
 </body>
