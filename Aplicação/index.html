@@ -7,7 +7,7 @@
 <body>
 
 <div id="app">
-    <my-component :name="text"></my-component>
+    <my-component @change="change"></my-component>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -15,18 +15,30 @@
 <script>
     Vue.component('my-component', {
         template: `
-          <div>Hello! {{ name }}</div>`,
-        props: {
-            name: ['String', 'Number']
+          <div>
+          <button @click="upCounter">Click Me</button>
+          - {{ counter }}
+          </div>
+        `,
+        data: function () {
+            return { counter: 0 }
+        },
+        methods: {
+            upCounter: function () {
+                this.counter++;
+                this.$emit('change')
+            }
         }
     })
 
-    let app = new Vue({
+    var app = new Vue({
         el: '#app',
-        data: {
-            text: 'Luis Carlos'
+        methods: {
+            change: function () {
+                console.log('new value');
+            }
         }
-    });
+    })
 </script>
 </body>
 </html>
