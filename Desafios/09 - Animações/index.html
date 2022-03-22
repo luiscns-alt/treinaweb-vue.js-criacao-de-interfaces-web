@@ -7,10 +7,9 @@
 <body>
 
 <div id="app">
-    <button @click="show = !show" >Click Me</button>
-    <transition name="myAnimation" @enter="onEnter" >
-        <p v-if="show" >Hello</p>
-    </transition>
+    <input type="text" v-model="styles.color" />
+    <input type="text" v-model="styles.fontSize" />
+    <div :style="styles">Hello World!</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -19,11 +18,9 @@
     var app = new Vue({
         el: '#app',
         data: {
-            show: true
-        },
-        methods: {
-            onEnter: function(el, done){
-                console.log('Hiiii!')
+            styles: {
+                color: 'black',
+                fontSize: '16px'
             }
         }
     })
