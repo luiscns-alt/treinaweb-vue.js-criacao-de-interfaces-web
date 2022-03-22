@@ -7,20 +7,29 @@
 <body>
 
 <div id="app">
-    {{title | upper}}
+    <my-component></my-component>
+    <my-component></my-component>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <script>
-    Vue.filter('upper', function (text) {
-        return text.toUpperCase();
+    var myData = {
+        title: 'Hello, world!',
+    }
+
+    Vue.component('my-component', {
+        template: `
+          <div>Hello! {{ title }}</div>`,
+        data: function () {
+            return myData
+        }
     })
 
     var app = new Vue({
         el: '#app',
         data: {
-            title: 'Luis Carlos'
+            text: 'Luis Carlos'
         }
     })
 </script>
