@@ -7,19 +7,12 @@
 <body>
 
 <div id="app">
-    <input type="checkbox" value="A" v-model="myList" />
-    <input type="checkbox" value="B" v-model="myList" />
-    <input type="checkbox" value="C" v-model="myList" />
-
-    {{ myList }}
-
-    <hr>
-
-    <input type="radio" value="A" v-model="myRadio" />
-    <input type="radio" value="B" v-model="myRadio" />
-    <input type="radio" value="C" v-model="myRadio" />
-
-    {{ myRadio }}
+    <select v-model="selected" multiple >
+        <option :value="1">A</option>
+        <option :value="2">B</option>
+        <option :value="3">C</option>
+    </select>
+    {{selected}}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -28,8 +21,7 @@
     var app = new Vue({
         el: '#app',
         data: {
-            myList: [],
-            myRadio: ''
+            selected: ''
         }
     })
 </script>
