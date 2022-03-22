@@ -15,9 +15,11 @@
 
     <hr>
 
-    <input type="checkbox" :true-value="5" :false-value="18" v-model="myCheck" />
+    <input type="radio" value="A" v-model="myRadio" />
+    <input type="radio" value="B" v-model="myRadio" />
+    <input type="radio" value="C" v-model="myRadio" />
 
-    {{ myCheck }}
+    {{ myRadio }}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -27,7 +29,7 @@
         el: '#app',
         data: {
             myList: [],
-            myCheck: ''
+            myRadio: ''
         }
     })
 </script>
