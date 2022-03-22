@@ -7,31 +7,26 @@
 <body>
 
 <div id="app">
-    <my-component></my-component>
-    <my-component></my-component>
+    <my-component :name="text"></my-component>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
 
 <script>
-    var myData = {
-        title: 'Hello, world!',
-    }
-
     Vue.component('my-component', {
         template: `
-          <div>Hello! {{ title }}</div>`,
-        data: function () {
-            return myData
+          <div>Hello! {{ name }}</div>`,
+        props: {
+            name: ['String', 'Number']
         }
     })
 
-    var app = new Vue({
+    let app = new Vue({
         el: '#app',
         data: {
             text: 'Luis Carlos'
         }
-    })
+    });
 </script>
 </body>
 </html>
