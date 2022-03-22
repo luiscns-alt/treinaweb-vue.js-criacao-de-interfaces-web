@@ -7,7 +7,8 @@
 <body>
 
 <div id="app">
-    {{ fullName }}
+    <h1>{{ question }}</h1>
+    {{ answer }}
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
@@ -16,19 +17,15 @@
     var app = new Vue({
         el: '#app',
         data: {
-            firstName: 'Hello',
-            lastName: 'World'
+            question: '',
+            answer: ''
         },
-        computed: {
-            fullName: {
-                get: function () {
-                    return this.firstName + ' ' + this.lastName
-                },
-                set: function (newValue) {
-                    var names = newValue.split(' ');
-                    this.firstName = names[0];
-                    this.lastName = names[1];
-                }
+        watch: {
+            question: function (value) {
+                this.answer = 'thinking ....';
+                setTimeout(() => {
+                    this.answer = 'Yes'
+                }, 2000)
             }
         }
     })
